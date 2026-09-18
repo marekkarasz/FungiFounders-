@@ -1,25 +1,25 @@
 :root
 {
     /* >>>>>>>>>>>>>>>>>>Colors<<<<<<<<<<<<<<<< */
-    --clr-primary: hsla(25, 88, 66, 100%);
-    --clr-primary-light: hsla(25, 88, 75, 100%);
+    --clr-primary: hsl(25, 88%, 66%);
+    --clr-primary-light: hsl(25, 88%, 75%);
 
-    --clr-brown-100: hsla(10, 5, 25, 100%);
-    --clr-brown-200: hsla(9, 7, 21, 100%);
-    --clr-brown-300: hsla(9, 8, 16, 100%);
-    --clr-brown-400: hsla(0, 6, 15, 100%);
-    --clr-brown-500: hsla(0, 6, 13, 100%);
+    --clr-brown-100: hsl(10, 5%, 25%);
+    --clr-brown-200: hsl(9, 7%, 21)%;
+    --clr-brown-300: hsl(9, 8%, 16%);
+    --clr-brown-400: hsl(0, 6%, 15%);
+    --clr-brown-500: hsl(0, 6%, 13%);
 
-    --clr-white: hsla(0, 0, 100, 100%);
-    --clr-gray: hsla(0, 2, 79, 100%);
+    --clr-white: hsl(0, 0%, 100%);
+    --clr-gray: hsl(0, 2%, 79%);
 
-    --clr-accent-light: hsla(143, 19, 49, 100%);
-    --clr-accent: hsla(143, 38, 37, 100%);
-    --clr-accent-dark: hsla(144, 30, 20, 100%);
+    --clr-accent-light: hsl(143, 19%, 49%);
+    --clr-accent: hsl(143, 38%, 37%);
+    --clr-accent-dark: hsl(144, 30%, 20)%;
 
-    --clr-red: hsla(359, 34, 37, 100%);
-    --clr-burnt-orange: hsla(28, 43, 37, 100%);
-    --clr-teal: hsla(186, 42, 37, 100%);
+    --clr-red: hsl(359, 34%, 37%);
+    --clr-burnt-orange: hsl(28, 43%, 37%);
+    --clr-teal: hsl(186, 42%, 37%);
 
     /* >>>>>>>>>>>>>>>> typography <<<<<<<<<<<<<<*/
 
@@ -36,6 +36,28 @@
         --fs-body-lg: 1.5rem;
         --fs-body-md: 1.25rem;
     }
+
+     /* >>>>>>>>>>>>>>>> nav-toggle <<<<<<<<<<<<<<*/
+
+    .nav-toggle
+{
+    --btn-size: 28px;      /* outer, including borders */
+    --bar-height: 2px;
+    --bar-spread: 8px;   /* distance from centre to each outer bar */
+    --border: 1px;
+
+    width: var(--btn-size);
+    height: var(--btn-size);
+
+    --centre: calc((var(--btn-size) - 2 * var(--border) - var(--bar-height)) / 2);
+}
+
+}
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> body <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+body
+{
+    background-color: var(--clr-brown-300);
 }
 /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> navigation <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
@@ -46,6 +68,12 @@ a
 li
 {
     list-style: none;
+}
+.site-header
+{
+    background-color: var(--clr-brown-300);
+    padding-block: 5px;
+    padding-inline: 10px;
 }
 .site-header__wrapper
 {
@@ -59,9 +87,9 @@ li
     display: inline-block;
     border: 1px solid transparent;
     margin-left: auto;
-    /* background: none; */
-    width: 40px;
-    height: 40px;
+    background: none;
+    /* width: 32px;
+    height: 32px; */
     position: relative;
     padding: 0;
     cursor: pointer;
@@ -72,40 +100,40 @@ li
     left: 0;
     width: 100%;
     height: 3px;
-    background-color: black;
+    background-color: var(--clr-primary);
     transition: transform 350ms ease-out, opacity 200ms;
 }
 
+.nav-toggle .middle
+{
+    top: calc((var(--btn-size) - 2 * var(--border) - var(--bar-height)) / 2);
+}
+.nav-toggle .top
+{
+    top: calc((var(--btn-size) - 2 * var(--border) - var(--bar-height)) / 2 - var(--bar-spread));
+}
+.nav-toggle .bottom
+{
+    top: calc((var(--btn-size) - 2 * var(--border) - var(--bar-height)) / 2 + var(--bar-spread));
+}
 
-.top
-{
-    top: 8px;
-}
-.site-header.is-open .nav-toggle .top
-{
-    transform: translateY(10.5px) rotate(45deg);
-}
-.middle
-{
-    top: 18.5px;
-}
 .site-header.is-open .nav-toggle .middle
 {
     opacity: 0;
 }
-.bottom
+.site-header.is-open .nav-toggle .top
 {
-    top: 29px;
+    transform: translateY(var(--bar-spread)) rotate(45deg);
 }
 .site-header.is-open .nav-toggle .bottom
 {
-    transform: translateY(-10.5px) rotate(-45deg);
+    transform: translateY(calc(var(--bar-spread) * -1)) rotate(-45deg);
 }
+
 .site-nav
 {
     order: 3;
     width: 100%;
-    margin-left: 0;
     display: none;
 }
 .site-header.is-open .site-nav
