@@ -1,74 +1,141 @@
-:root {
-  /* >>>>>>>>>>>>>>>>>>Colors<<<<<<<<<<<<<<<< */
-  --clr-primary: hsl(25, 88%, 66%);
-  --clr-primary-light: hsl(25, 88%, 75%);
-
-  --clr-brown-100: hsl(10, 5%, 25%);
-  --clr-brown-200: hsl(9, 7%, 21) %;
-  --clr-brown-300: hsl(9, 8%, 16%);
-  --clr-brown-400: hsl(0, 6%, 15%);
-  --clr-brown-500: hsl(0, 6%, 13%);
-
-  --clr-white: hsl(0, 0%, 100%);
-  --clr-gray: hsl(0, 2%, 79%);
-
-  --clr-accent-light: hsl(143, 19%, 49%);
-  --clr-accent: hsl(143, 38%, 37%);
-  --clr-accent-dark: hsl(144, 30%, 20) %;
-
-  --clr-red: hsl(359, 34%, 37%);
-  --clr-burnt-orange: hsl(28, 43%, 37%);
-  --clr-teal: hsl(186, 42%, 37%);
-
-  /* >>>>>>>>>>>>>>>> typography <<<<<<<<<<<<<<*/
-
-  --fs-title: clamp(3.75rem, 1.5rem + 5.6vw, 7.5rem);
-  --fs-section-heading: clamp(2.25rem, 1.65rem + 1.5vw, 3rem);
-  --fs-heading: clamp(1.5rem, 1.1rem + 1vw, 2rem);
-  --fs-body-lg: 1.25rem;
-  --fs-body-md: 1.125rem;
-  --fs-body-reg: 1rem;
-  --fs-body-sm: 0.875rem;
-
-  @media (min-width: 64em) {
-    --fs-body-lg: 1.5rem;
-    --fs-body-md: 1.25rem;
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
   }
-
-  --ff-heading: "Outfit", system-ui, -apple-system, sans-serif;
-  --ff-body: "Fira Sans", system-ui, -apple-system, sans-serif;
-
-  --weight-regular: 400;
-  --weight-medim: 500;
-  --weight-semibold: 600;
-  --weight-bold: 700;
-  /* >>>>>>>>>>>>>>>> nav-toggle <<<<<<<<<<<<<<*/
-
-  .nav-toggle {
-    --btn-size: 28px; /* outer, including borders */
-    --bar-height: 2px;
-    --bar-spread: 8px; /* distance from centre to each outer bar */
-    --border: 1px;
-
-    width: var(--btn-size);
-    height: var(--btn-size);
-
-    --centre: calc(
-      (var(--btn-size) - 2 * var(--border) - var(--bar-height)) / 2
-    );
+  html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+  }
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  figure,
+  blockquote,
+  dl,
+  dd {
+    margin: 0;
+  }
+  [role="list"] {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    min-block-size: 100vh;
+    line-height: 1.6;
+  }
+  h1,
+  h2,
+  h3,
+  button,
+  input,
+  label {
+    line-height: 1.1;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+  p,
+  li {
+    text-wrap: pretty;
+  }
+  img,
+  picture {
+    max-inline-size: 100%;
+    display: block;
+  }
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
   }
 }
-/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> body <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
-body {
-  background-color: var(--clr-brown-300);
-  font-family: var(--ff-body);
-  font-weight: var(--weight-regular);
+@layer root {
+  :root {
+    /* >>>>>>>>>>>>>>>>>>Colors<<<<<<<<<<<<<<<< */
+    --clr-primary: hsl(25, 88%, 66%);
+    --clr-primary-light: hsl(25, 88%, 75%);
+
+    --clr-brown-100: hsl(10, 5%, 25%);
+    --clr-brown-200: hsl(9, 7%, 21) %;
+    --clr-brown-300: hsl(9, 8%, 16%);
+    --clr-brown-400: hsl(0, 6%, 15%);
+    --clr-brown-500: hsl(0, 6%, 13%);
+
+    --clr-white: hsl(0, 0%, 100%);
+    --clr-gray: hsl(0, 2%, 79%);
+
+    --clr-accent-light: hsl(143, 19%, 49%);
+    --clr-accent: hsl(143, 38%, 37%);
+    --clr-accent-dark: hsl(144, 30%, 20) %;
+
+    --clr-red: hsl(359, 34%, 37%);
+    --clr-burnt-orange: hsl(28, 43%, 37%);
+    --clr-teal: hsl(186, 42%, 37%);
+
+    /* >>>>>>>>>>>>>>>> typography <<<<<<<<<<<<<<*/
+
+    --fs-title: clamp(3.75rem, 1.5rem + 5.6vw, 7.5rem);
+    --fs-section-heading: clamp(2.25rem, 1.65rem + 1.5vw, 3rem);
+    --fs-heading: clamp(1.5rem, 1.1rem + 1vw, 2rem);
+    --fs-body-lg: 1.25rem;
+    --fs-body-md: 1.125rem;
+    --fs-body-reg: 1rem;
+    --fs-body-sm: 0.875rem;
+
+    @media (min-width: 64em) {
+      --fs-body-lg: 1.5rem;
+      --fs-body-md: 1.25rem;
+    }
+
+    --ff-heading: "Outfit", system-ui, -apple-system, sans-serif;
+    --ff-body: "Fira Sans", system-ui, -apple-system, sans-serif;
+
+    --weight-regular: 400;
+    --weight-medim: 500;
+    --weight-semibold: 600;
+    --weight-bold: 700;
+    /* >>>>>>>>>>>>>>>> nav-toggle <<<<<<<<<<<<<<*/
+
+    .nav-toggle {
+      --btn-size: 28px; /* outer, including borders */
+      --bar-height: 2px;
+      --bar-spread: 8px; /* distance from centre to each outer bar */
+      --border: 1px;
+
+      width: var(--btn-size);
+      height: var(--btn-size);
+
+      --centre: calc(
+        (var(--btn-size) - 2 * var(--border) - var(--bar-height)) / 2
+      );
+    }
+  }
+  /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> body <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+  body {
+    background-color: var(--clr-brown-300);
+    font-family: var(--ff-body);
+    font-weight: var(--weight-regular);
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--ff-heading);
+    font-weight: var(--weight-bold);
+  }
 }
-h1,
-h2,
-h3 {
-  font-family: var(--ff-heading);
-  font-weight: var(--weight-bold);
+
+@layer base {
 }
-/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> navigation <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
