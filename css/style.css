@@ -94,7 +94,7 @@
     --fs-body-reg: 1rem;
     --fs-body-sm: 0.875rem;
 
-    @media (min-width: 64em) {
+    @media (width > 760px) {
       --fs-body-lg: 1.5rem;
       --fs-body-md: 1.25rem;
     }
@@ -106,36 +106,51 @@
     --weight-medim: 500;
     --weight-semibold: 600;
     --weight-bold: 700;
-    /* >>>>>>>>>>>>>>>> nav-toggle <<<<<<<<<<<<<<*/
 
-    .nav-toggle {
-      --btn-size: 28px; /* outer, including borders */
-      --bar-height: 2px;
-      --bar-spread: 8px; /* distance from centre to each outer bar */
-      --border: 1px;
-
-      width: var(--btn-size);
-      height: var(--btn-size);
-
-      --centre: calc(
-        (var(--btn-size) - 2 * var(--border) - var(--bar-height)) / 2
-      );
-    }
-  }
-  /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> body <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-
-  body {
-    background-color: var(--clr-brown-300);
-    font-family: var(--ff-body);
-    font-weight: var(--weight-regular);
-  }
-  h1,
-  h2,
-  h3 {
-    font-family: var(--ff-heading);
-    font-weight: var(--weight-bold);
+    --border-radius-1: 0.25rem;
+    --border-radius-2: 0.5rem;
+    --border-radius-3: 0.75rem;
   }
 }
 
 @layer base {
+  body {
+    font-family: var(--ff-body);
+    font-size: var(--fs-body-md);
+    background-color: var(--clr-brown-400);
+    color: var(--clr-gray);
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--ff-heading);
+  }
+  h1 {
+    font-size: var(--fs-title);
+  }
+  h2 {
+    font-size: var(--fs-section-heading);
+  }
+  h3 {
+    font-size: var(--fs-heading);
+  }
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-inline: auto;
+    padding-inline: 2rem;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+    color: var(--clr-gray);
+  }
 }
